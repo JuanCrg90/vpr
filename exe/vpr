@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'vpr'
+
+hello = Vpr::Hello.new
+hello.say_hello
