@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'vpr'
+require 'vpr/cli'
 
-hello = Vpr::Hello.new
-hello.say_hello
+
+Vpr::CLI.start ARGV
