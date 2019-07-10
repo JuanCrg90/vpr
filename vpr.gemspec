@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Juan Carlos Ruiz']
   spec.email         = ['JuanCrg90@gmail.com']
 
-  spec.summary       = 'Visit the github PR using the Commit SHA-1'
+  spec.summary       = 'A CLI to visit quickly commits in github'
   spec.description   = 'Visit the github PR using the Commit SHA-1'
-  spec.homepage      = 'https://juancrg90.me'
+  spec.homepage      = 'https://github.com/JuanCrg90/vpr'
   spec.license       = 'MIT'
 
   # Specify which files should be added to the gem when it is released.
