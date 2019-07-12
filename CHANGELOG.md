@@ -1,10 +1,12 @@
 # Change Log
 
-## [1.0.0](https://github.com/JuanCrg90/vpr/tree/1.0.0) (2019-07-12)
-[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v0.2.0...1.0.0)
+## [v1.0.0](https://github.com/JuanCrg90/vpr/tree/v1.0.0) (2019-07-12)
+[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v0.2.0...v1.0.0)
 
 **Merged pull requests:**
 
+- Bump version 1.0.0 [\#4](https://github.com/JuanCrg90/vpr/pull/4) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add changelog [\#3](https://github.com/JuanCrg90/vpr/pull/3) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add regular GitHub project actions [\#2](https://github.com/JuanCrg90/vpr/pull/2) ([JuanCrg90](https://github.com/JuanCrg90))
 
 ## [v0.2.0](https://github.com/JuanCrg90/vpr/tree/v0.2.0) (2019-07-10)
