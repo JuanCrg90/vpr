@@ -30,6 +30,15 @@ RSpec.describe Vpr::Url do
     end
   end
 
+  describe '.issues_url' do
+    subject { described_class.branches_url }
+
+    it 'returns the  issues url' do
+      url = %r{https://github.com/\w+/vpr/branches}
+      expect(subject).to match(url)
+    end
+  end
+
   describe '.branch_url' do
     subject { described_class.branch_url }
 

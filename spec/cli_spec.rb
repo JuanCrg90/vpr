@@ -26,6 +26,14 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe 'branches' do
+    it 'open github branches page' do
+      url = %r{https://github.com/\w+/vpr/branches}
+      expect(Launchy).to receive(:open).with(url)
+      Vpr::CLI.start(["branches"])
+    end
+  end
+
   describe 'branch' do
     it 'open github branch page' do
       url = %r{https://github.com/\w+/vpr/tree/\w+}

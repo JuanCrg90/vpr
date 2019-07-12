@@ -19,6 +19,11 @@ module Vpr
       Launchy.open(Url.issues_url)
     end
 
+    desc 'branches', 'visit the project branches page in github'
+    def branches
+      Launchy.open(Url.branches_url)
+    end
+
     desc 'branch', 'visit the current branch in github'
     def branch
       Launchy.open(Url.branch_url)

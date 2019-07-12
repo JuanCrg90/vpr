@@ -14,6 +14,10 @@ module Vpr
       "#{GitParser.repo_url}/issues"
     end
 
+    def self.branches_url
+      "#{GitParser.repo_url}/branches"
+    end
+
     def self.branch_url
       "#{GitParser.repo_url}/tree/#{GitParser.current_branch}"
     end
