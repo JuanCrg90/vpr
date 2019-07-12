@@ -14,6 +14,10 @@ $ vpr home # visit the project page in github
 ```
 
 ```
+$ vpr pulls # visit the project pull requests page in github
+```
+
+```
 $ vpr visit <commit> # visit the commit in github
 ```
 

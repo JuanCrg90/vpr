@@ -9,6 +9,11 @@ module Vpr
       Launchy.open(Url.home_url)
     end
 
+    desc 'pulls', 'visit the project pull requests page in github'
+    def pulls
+      Launchy.open(Url.pulls_url)
+    end
+
     desc 'visit COMMIT', 'visit the commit in github'
     def visit(commit)
       Launchy.open(Url.commit_url(commit))

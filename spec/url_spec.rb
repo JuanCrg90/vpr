@@ -11,6 +11,14 @@ RSpec.describe Vpr::Url do
     end
   end
 
+  describe '.pulls_url' do
+    subject { described_class.pulls_url }
+
+    it 'returns the pull requests url' do
+      expect(subject).to eq('https://github.com/JuanCrg90/vpr/pulls')
+    end
+  end
+
   describe '.commit_url' do
     subject { described_class.commit_url(commit) }
 
