@@ -27,6 +27,14 @@ RSpec.describe Vpr::Url do
     end
   end
 
+  describe '.branch_url' do
+    subject { described_class.branch_url }
+
+    it 'returns the branch url' do
+      expect(subject).to match(%r{https://github.com/JuanCrg90/vpr/tree/\w+})
+    end
+  end
+
   describe '.commit_url' do
     subject { described_class.commit_url(commit) }
 

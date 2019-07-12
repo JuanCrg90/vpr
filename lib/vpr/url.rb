@@ -14,6 +14,10 @@ module Vpr
       "#{GitParser.repo_url}/issues"
     end
 
+    def self.branch_url
+      "#{GitParser.repo_url}/tree/#{GitParser.current_branch}"
+    end
+
     def self.commit_url(commit)
       "#{GitParser.repo_url}/commit/#{commit}"
     end

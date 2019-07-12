@@ -23,6 +23,13 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe 'branch' do
+    it 'open github branch page' do
+      expect(Launchy).to receive(:open).with(%r{https:\/\/github\.com\/\w+\/vpr\/tree\/\w+})
+      Vpr::CLI.start(["branch"])
+    end
+  end
+
   describe 'visit' do
     it 'open initial commit github page' do
       expect(Launchy).to receive(:open).with("https://github.com/JuanCrg90/vpr/commit/123")

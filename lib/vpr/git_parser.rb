@@ -26,5 +26,10 @@ module Vpr
 
       File.join("https://#{matched[:host]}", matched[:owner], matched[:repo])
     end
+
+    def self.current_branch
+      git = Git.open(Dir.pwd)
+      git.current_branch
+    end
   end
 end

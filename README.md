@@ -22,6 +22,10 @@ $ vpr issues # visit the project issues page in github
 ```
 
 ```
+$ vpr branch # 'visit the current branch in github'
+```
+
+```
 $ vpr visit <commit> # visit the commit in github
 ```
 

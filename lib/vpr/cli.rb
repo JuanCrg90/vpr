@@ -19,6 +19,11 @@ module Vpr
       Launchy.open(Url.issues_url)
     end
 
+    desc 'branch', 'visit the current branch in github'
+    def branch
+      Launchy.open(Url.branch_url)
+    end
+
     desc 'visit COMMIT', 'visit the commit in github'
     def visit(commit)
       Launchy.open(Url.commit_url(commit))
