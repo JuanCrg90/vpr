@@ -7,7 +7,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.home_url }
 
     it 'returns the project url' do
-      expect(subject).to eq('https://github.com/JuanCrg90/vpr')
+      url = %r{https://github.com/\w+/vpr}
+      expect(subject).to match(url)
     end
   end
 
@@ -15,7 +16,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.pulls_url }
 
     it 'returns the pull requests url' do
-      expect(subject).to eq('https://github.com/JuanCrg90/vpr/pulls')
+      url = %r{https://github.com/\w+/vpr/pulls}
+      expect(subject).to match(url)
     end
   end
 
@@ -23,7 +25,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.issues_url }
 
     it 'returns the  issues url' do
-      expect(subject).to eq('https://github.com/JuanCrg90/vpr/issues')
+      url = %r{https://github.com/\w+/vpr/issues}
+      expect(subject).to match(url)
     end
   end
 
@@ -31,7 +34,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.branch_url }
 
     it 'returns the branch url' do
-      expect(subject).to match(%r{https://github.com/JuanCrg90/vpr/tree/\w+})
+      url = %r{https://github.com/\w+/vpr/tree/\w+}
+      expect(subject).to match(url)
     end
   end
 
@@ -39,7 +43,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.pull_url }
 
     it 'returns the current branch pull request url' do
-      expect(subject).to match(%r{https://github.com/JuanCrg90/vpr/pull/\w+})
+      url = %r{https://github.com/\w+/vpr/pull/\w+}
+      expect(subject).to match(url)
     end
   end
 
@@ -47,7 +52,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.commit_url(commit) }
 
     it 'returns the commit url' do
-      expect(subject).to eq('https://github.com/JuanCrg90/vpr/commit/30bd60')
+      url = %r{https://github.com/\w+/vpr/commit/30bd60}
+      expect(subject).to match(url)
     end
   end
 
@@ -55,7 +61,8 @@ RSpec.describe Vpr::Url do
     subject { described_class.search_url(commit) }
 
     it 'returns the search page url' do
-      expect(subject).to eq('https://github.com/JuanCrg90/vpr/search?q=30bd60')
+      url = %r{https://github.com/\w+/vpr/search\?q=30bd60}
+      expect(subject).to match(url)
     end
   end
 end
