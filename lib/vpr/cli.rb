@@ -24,6 +24,11 @@ module Vpr
       Launchy.open(Url.branch_url)
     end
 
+    desc 'pull', 'visit the pull request for the current branch (if exist) in github'
+    def pull
+      Launchy.open(Url.pull_url)
+    end
+
     desc 'visit COMMIT', 'visit the commit in github'
     def visit(commit)
       Launchy.open(Url.commit_url(commit))

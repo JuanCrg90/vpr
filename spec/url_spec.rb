@@ -35,6 +35,14 @@ RSpec.describe Vpr::Url do
     end
   end
 
+  describe '.pull_url' do
+    subject { described_class.pull_url }
+
+    it 'returns the current branch pull request url' do
+      expect(subject).to match(%r{https://github.com/JuanCrg90/vpr/pull/\w+})
+    end
+  end
+
   describe '.commit_url' do
     subject { described_class.commit_url(commit) }
 

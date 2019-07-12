@@ -18,6 +18,10 @@ module Vpr
       "#{GitParser.repo_url}/tree/#{GitParser.current_branch}"
     end
 
+    def self.pull_url
+      "#{GitParser.repo_url}/pull/#{GitParser.current_branch}"
+    end
+
     def self.commit_url(commit)
       "#{GitParser.repo_url}/commit/#{commit}"
     end

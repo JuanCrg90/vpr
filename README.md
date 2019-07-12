@@ -26,6 +26,10 @@ $ vpr branch # 'visit the current branch in github'
 ```
 
 ```
+$ vpr pull # 'visit the pull request for the current branch (if exist) in github'
+```
+
+```
 $ vpr visit <commit> # visit the commit in github
 ```
 
