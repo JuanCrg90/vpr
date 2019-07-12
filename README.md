@@ -1,22 +1,52 @@
 # vpr
 
-A CLI to visit quickly commits in github
+A CLI to visit quickly github project sections
 
 ## Installation
 ```
   $ gem install vpr
-
 ```
 ## Usage
 
 ```
+$ vpr home # visit the project page in github
+```
+![vpr home](https://res.cloudinary.com/juancrg90/image/upload/v1562969660/vpr/vpr_home.gif)
+
+```
+$ vpr pulls # visit the project pull requests page in github
+```
+![vpr pulls](https://res.cloudinary.com/juancrg90/image/upload/v1562969866/vpr/vpr_pulls.gif)
+
+```
+$ vpr issues # visit the project issues page in github
+```
+![vpr issues](https://res.cloudinary.com/juancrg90/image/upload/v1562969959/vpr/vpr_issues.gif)
+
+```
+$ vpr branches # visit the project branches page in github
+```
+![vpr branches](https://res.cloudinary.com/juancrg90/image/upload/v1562970055/vpr/vpr_branches.gif)
+
+```
+$ vpr branch # 'visit the current branch in github'
+```
+![vpr branch](https://res.cloudinary.com/juancrg90/image/upload/v1562970153/vpr/vpr_branch.gif)
+
+```
+$ vpr pull # 'visit the pull request for the current branch (if exist) in github'
+```
+![vpr pull](https://res.cloudinary.com/juancrg90/image/upload/v1562970242/vpr/vpr_pull.gif)
+
+```
 $ vpr visit <commit> # visit the commit in github
 ```
+![vpr visit](https://res.cloudinary.com/juancrg90/image/upload/v1562970485/vpr/vpr_visit.gif)
 
 ```
 $ vpr search <commit> # search the commit in github
 ```
-
+![vpr search](https://res.cloudinary.com/juancrg90/image/upload/v1562970606/vpr/vpr_search.gif)
 
 ## Development
 
