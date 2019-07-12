@@ -14,6 +14,11 @@ module Vpr
       Launchy.open(Url.pulls_url)
     end
 
+    desc 'issues', 'visit the project issues page in github'
+    def issues
+      Launchy.open(Url.issues_url)
+    end
+
     desc 'visit COMMIT', 'visit the commit in github'
     def visit(commit)
       Launchy.open(Url.commit_url(commit))

@@ -18,6 +18,10 @@ $ vpr pulls # visit the project pull requests page in github
 ```
 
 ```
+$ vpr issues # visit the project issues page in github
+```
+
+```
 $ vpr visit <commit> # visit the commit in github
 ```
 

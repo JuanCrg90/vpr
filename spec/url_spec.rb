@@ -19,6 +19,14 @@ RSpec.describe Vpr::Url do
     end
   end
 
+  describe '.issues_url' do
+    subject { described_class.issues_url }
+
+    it 'returns the  issues url' do
+      expect(subject).to eq('https://github.com/JuanCrg90/vpr/issues')
+    end
+  end
+
   describe '.commit_url' do
     subject { described_class.commit_url(commit) }
 

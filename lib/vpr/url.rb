@@ -10,6 +10,10 @@ module Vpr
       "#{GitParser.repo_url}/pulls"
     end
 
+    def self.issues_url
+      "#{GitParser.repo_url}/issues"
+    end
+
     def self.commit_url(commit)
       "#{GitParser.repo_url}/commit/#{commit}"
     end

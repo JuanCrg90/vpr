@@ -16,6 +16,13 @@ RSpec.describe "CLI" do
     end
   end
 
+  describe 'issues' do
+    it 'open github issues page' do
+      expect(Launchy).to receive(:open).with("https://github.com/JuanCrg90/vpr/issues")
+      Vpr::CLI.start(["issues"])
+    end
+  end
+
   describe 'visit' do
     it 'open initial commit github page' do
       expect(Launchy).to receive(:open).with("https://github.com/JuanCrg90/vpr/commit/123")
