@@ -1,4 +1,5 @@
 require "git"
+require "vpr/configuration"
 
 module Vpr
   class GitParser
@@ -20,7 +21,7 @@ module Vpr
         remotes[remote.name.to_sym] = remote.url
       end
 
-      remote_uri = remotes[:origin]
+      remote_uri = remotes[Configuration.instance.remote]
 
       matched = remote_uri.match(REGEXP)
 
@@ -40,7 +41,7 @@ module Vpr
         remotes[remote.name.to_sym] = remote.url
       end
 
-      remote_uri = remotes[:origin]
+      remote_uri = remotes[Configuration.instance.remote]
 
       matched = remote_uri.match(REGEXP)
 
