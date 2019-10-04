@@ -60,9 +60,20 @@ RSpec.describe Vpr::Url do
   describe '.commit_url' do
     subject { described_class.commit_url(commit) }
 
-    it 'returns the commit url' do
-      url = %r{https://github.com/\w+/vpr/commit/30bd60}
-      expect(subject).to match(url)
+    context 'when github' do
+      it 'returns the commit url' do
+        url = %r{https://github.com/\w+/vpr/commit/30bd60}
+        expect(subject).to match(url)
+      end
+    end
+
+    context 'when bitbucket' do
+      it 'returns the commit url' do
+        url = %r{https://bitbucket.org/\w+/vpr/commits/30bd60}
+        expect(Vpr::GitParser).to receive(:host).and_return('bitbucket.org')
+        expect(Vpr::GitParser).to receive(:repo_url).and_return('https://bitbucket.org/JuanCrg90/vpr')
+        expect(subject).to match(url)
+      end
     end
   end
 

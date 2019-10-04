@@ -31,5 +31,20 @@ module Vpr
       git = Git.open(Dir.pwd)
       git.current_branch
     end
+
+    def self.host
+      git = Git.open(Dir.pwd)
+
+      remotes = {}
+      git.remotes.each do |remote|
+        remotes[remote.name.to_sym] = remote.url
+      end
+
+      remote_uri = remotes[:origin]
+
+      matched = remote_uri.match(REGEXP)
+
+      matched[:host]
+    end
   end
 end
