@@ -4,6 +4,8 @@ require 'vpr/url'
 
 module Vpr
   class CLI < Thor
+    map '--version' => :version
+
     desc 'home', 'visit the project page in github'
     def home
       Launchy.open(Url.home_url)
@@ -42,6 +44,11 @@ module Vpr
     desc 'search COMMIT', 'search the commit in github'
     def search(commit)
       Launchy.open(Url.search_url(commit))
+    end
+
+    desc 'version', 'show the gem version'
+    def version
+      Vpr::VERSION
     end
   end
 end
