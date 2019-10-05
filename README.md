@@ -1,4 +1,5 @@
 ![StandardRB](https://github.com/JuanCrg90/vpr/workflows/StandardRB/badge.svg)
+[![CircleCI](https://circleci.com/gh/JuanCrg90/vpr.svg?style=svg)](https://circleci.com/gh/JuanCrg90/vpr)
 
 # vpr
 
