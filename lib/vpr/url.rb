@@ -1,4 +1,4 @@
-require 'vpr/git_parser'
+require "vpr/git_parser"
 
 module Vpr
   class Url
@@ -28,8 +28,8 @@ module Vpr
 
     def self.commit_url(commit)
       path = {
-        'github.com': 'commit',
-        'bitbucket.org': 'commits'
+        'github.com': "commit",
+        'bitbucket.org': "commits",
       }
 
       "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}/#{commit}"

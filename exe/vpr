@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'vpr/cli'
-
+require "vpr/cli"
 
 Vpr::CLI.start ARGV

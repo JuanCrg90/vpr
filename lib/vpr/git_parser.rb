@@ -1,4 +1,4 @@
-require 'git'
+require "git"
 
 module Vpr
   class GitParser
