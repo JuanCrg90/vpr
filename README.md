@@ -1,3 +1,5 @@
+![StandardRB](https://github.com/JuanCrg90/vpr/workflows/StandardRB/badge.svg)
+
 # vpr
 
 A CLI to visit quickly github project sections
