@@ -80,8 +80,6 @@ GEM
     standard (0.1.4)
       rubocop (~> 0.72.0)
       rubocop-performance (~> 1.4.0)
-    standardrb (1.0.0)
-      standard
     thor (0.20.3)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
@@ -97,7 +95,7 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.0)
   rspec_junit_formatter (~> 0.4)
-  standardrb
+  standard
   vpr!
 
 BUNDLED WITH
