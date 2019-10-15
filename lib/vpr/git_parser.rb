@@ -1,4 +1,5 @@
 require "git"
+require "vpr/configuration"
 
 module Vpr
   class GitParser
@@ -12,39 +13,41 @@ module Vpr
     (?<repo>[^/.]+)
     }x.freeze
 
-    def self.repo_url
-      git = Git.open(Dir.pwd)
+    class << self
+      def repo_url
+        git = Git.open(Dir.pwd)
 
-      remotes = {}
-      git.remotes.each do |remote|
-        remotes[remote.name.to_sym] = remote.url
+        remotes = {}
+        git.remotes.each do |remote|
+          remotes[remote.name.to_sym] = remote.url
+        end
+
+        remote_uri = remotes[Configuration.instance.remote]
+
+        matched = remote_uri.match(REGEXP)
+
+        File.join("https://#{matched[:host]}", matched[:owner], matched[:repo])
       end
 
-      remote_uri = remotes[:origin]
-
-      matched = remote_uri.match(REGEXP)
-
-      File.join("https://#{matched[:host]}", matched[:owner], matched[:repo])
-    end
-
-    def self.current_branch
-      git = Git.open(Dir.pwd)
-      git.current_branch
-    end
-
-    def self.host
-      git = Git.open(Dir.pwd)
-
-      remotes = {}
-      git.remotes.each do |remote|
-        remotes[remote.name.to_sym] = remote.url
+      def current_branch
+        git = Git.open(Dir.pwd)
+        git.current_branch
       end
 
-      remote_uri = remotes[:origin]
+      def host
+        git = Git.open(Dir.pwd)
 
-      matched = remote_uri.match(REGEXP)
+        remotes = {}
+        git.remotes.each do |remote|
+          remotes[remote.name.to_sym] = remote.url
+        end
 
-      matched[:host]
+        remote_uri = remotes[Configuration.instance.remote]
+
+        matched = remote_uri.match(REGEXP)
+
+        matched[:host]
+      end
     end
   end
 end
