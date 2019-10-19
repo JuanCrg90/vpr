@@ -64,7 +64,7 @@ module Vpr
     private
 
     def select_remote
-      Configuration.instance.remote = options[:remote].to_sym
+      Configuration.remote = options[:remote].to_sym
     end
   end
 end
