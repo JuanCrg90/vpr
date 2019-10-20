@@ -23,7 +23,12 @@ module Vpr
     end
 
     def self.pull_url
-      "#{GitParser.repo_url}/pull/#{GitParser.current_branch}"
+      path = {
+        'github.com': "pull/#{GitParser.current_branch}",
+        'bitbucket.org': "pull-requests/new?source=#{GitParser.current_branch}",
+      }
+
+      "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}"
     end
 
     def self.commit_url(commit)
