@@ -17,6 +17,29 @@ RSpec.describe Vpr::GitParser do
         expect(described_class.repo_url).to match(repo_url)
       end
     end
+
+    context "when in a sub folder of the repository" do
+      around do |example|
+        Dir.chdir("lib") { example.run }
+      end
+
+      it "returns the repo url" do
+        repo_url = %r{https://github.com/\w+/vpr}
+        expect(described_class.repo_url).to match(repo_url)
+      end
+    end
+
+    context "when in a folder outside of a git repository" do
+      around do |example|
+        Dir.chdir(Dir.tmpdir) { example.run }
+      end
+
+      it "raises an error" do
+        # TODO: replace with a human readable error message and a non-zero exit
+        # code
+        expect { described_class.repo_url }.to raise_error(ArgumentError)
+      end
+    end
   end
 
   describe "current_branch" do

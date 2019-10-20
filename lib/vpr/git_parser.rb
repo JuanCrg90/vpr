@@ -22,7 +22,7 @@ module Vpr
       end
 
       def current_branch
-        git = Git.open(Dir.pwd)
+        git = Git.open(git_dir)
         git.current_branch
       end
 
@@ -36,8 +36,21 @@ module Vpr
       private
 
       def remotes
-        git = Git.open(Dir.pwd)
+        git = Git.open(git_dir)
         git.remotes.map { |remote| [remote.name.to_sym, remote.url] }.to_h
+      end
+
+      def git_dir
+        dir = Dir.pwd
+
+        loop do
+          return dir if File.directory?(File.join(dir, ".git"))
+
+          parent = File.dirname(dir)
+          return dir if parent == dir # we're at the root
+
+          dir = parent
+        end
       end
     end
   end
