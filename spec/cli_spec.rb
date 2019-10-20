@@ -2,8 +2,6 @@ require "spec_helper"
 require "launchy"
 
 RSpec.describe "CLI" do
-  let(:configuration) { Vpr::Configuration.instance }
-
   describe "home" do
     let(:url) { %r{https://github.com/\w+/vpr} }
 
@@ -15,16 +13,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["home"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { "https://github.com/EduardoGHdez/vpr" }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open github remote's home page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["home", "--remote", "mine"])
+        Vpr::CLI.start(["home", "--remote", "upstream"])
       end
     end
   end
@@ -40,16 +40,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["pulls"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { "https://github.com/EduardoGHdez/vpr/pulls" }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open github remote's pull request" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["pulls", "--remote", "mine"])
+        Vpr::CLI.start(["pulls", "--remote", "upstream"])
       end
     end
   end
@@ -65,16 +67,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["issues"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { "https://github.com/EduardoGHdez/vpr/issues" }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open github remote's issues page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["issues", "--remote", "mine"])
+        Vpr::CLI.start(["issues", "--remote", "upstream"])
       end
     end
   end
@@ -90,16 +94,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["branches"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { "https://github.com/EduardoGHdez/vpr/branches" }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open githube remote's branches page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["branches", "--remote", "mine"])
+        Vpr::CLI.start(["branches", "--remote", "upstream"])
       end
     end
   end
@@ -115,16 +121,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["branch"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { %r{https://github.com/EduardoGHdez/vpr/tree/\w+} }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open github remote's branch page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["branch", "--remote", "mine"])
+        Vpr::CLI.start(["branch", "--remote", "upstream"])
       end
     end
   end
@@ -140,16 +148,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["pull"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { %r{https://github.com/EduardoGHdez/vpr/pull/\w+} }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open github remote's current branch pull request page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["pull", "--remote", "mine"])
+        Vpr::CLI.start(["pull", "--remote", "upstream"])
       end
     end
   end
@@ -165,16 +175,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).twice.and_return(:origin)
         Vpr::CLI.start(["visit", "123"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { %r{https://github.com/EduardoGHdez/vpr/commit/123} }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open initial remote's commit github page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).twice.and_return(:mine)
-        Vpr::CLI.start(["visit", "123", "--remote", "mine"])
+        Vpr::CLI.start(["visit", "123", "--remote", "upstream"])
       end
     end
   end
@@ -190,16 +202,18 @@ RSpec.describe "CLI" do
     context "when user does not specify a remote" do
       it "use :origin by default" do
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:origin)
         Vpr::CLI.start(["search", "123"])
       end
     end
 
     context "when user specify a remote" do
+      let(:url) { %r{https://github.com/EduardoGHdez/vpr/search\?q=123} }
+      let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
+
       it "open initial remote's commit github search page" do
+        allow(Vpr::GitParser).to receive(:remotes).and_return(remotes)
         expect(Launchy).to receive(:open).with(url)
-        expect(configuration).to receive(:remote).and_return(:mine)
-        Vpr::CLI.start(["search", "123", "--remote", "mine"])
+        Vpr::CLI.start(["search", "123", "--remote", "upstream"])
       end
     end
   end

@@ -15,15 +15,7 @@ module Vpr
 
     class << self
       def repo_url
-        git = Git.open(Dir.pwd)
-
-        remotes = {}
-        git.remotes.each do |remote|
-          remotes[remote.name.to_sym] = remote.url
-        end
-
-        remote_uri = remotes[Configuration.instance.remote]
-
+        remote_uri = remotes[Configuration.remote]
         matched = remote_uri.match(REGEXP)
 
         File.join("https://#{matched[:host]}", matched[:owner], matched[:repo])
@@ -35,18 +27,17 @@ module Vpr
       end
 
       def host
-        git = Git.open(Dir.pwd)
-
-        remotes = {}
-        git.remotes.each do |remote|
-          remotes[remote.name.to_sym] = remote.url
-        end
-
-        remote_uri = remotes[Configuration.instance.remote]
-
+        remote_uri = remotes[Configuration.remote]
         matched = remote_uri.match(REGEXP)
 
         matched[:host]
+      end
+
+      private
+
+      def remotes
+        git = Git.open(Dir.pwd)
+        git.remotes.map { |remote| [remote.name.to_sym, remote.url] }.to_h
       end
     end
   end
