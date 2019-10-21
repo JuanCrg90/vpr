@@ -51,9 +51,20 @@ RSpec.describe Vpr::Url do
   describe ".pull_url" do
     subject { described_class.pull_url }
 
-    it "returns the current branch pull request url" do
-      url = %r{https://github.com/\w+/vpr/pull/\w+}
-      expect(subject).to match(url)
+    context "when github" do
+      it "returns the current branch pull request url" do
+        url = %r{https://github.com/\w+/vpr/pull/\w+}
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when bitbucket" do
+      it "returns the pull request" do
+        url = %r{https://bitbucket.org/\w+/vpr/pull-requests/new\?source=\w+}
+        expect(Vpr::GitParser).to receive(:host).and_return("bitbucket.org")
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
     end
   end
 
