@@ -41,7 +41,6 @@ module Vpr
     end
 
     def self.search_url(commit)
-      puts "GitParser.repo_url.match(/bitbucket/): #{GitParser.repo_url.match(/bitbucket/)}"
       search_param = if GitParser.repo_url.match(/bitbucket/)
         "/commits/?search="
       else
