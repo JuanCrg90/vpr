@@ -34,7 +34,7 @@ module Vpr
     def self.commit_url(commit)
       path = {
         'github.com': "commit",
-        'bitbucket.org': "commits"
+        'bitbucket.org': "commits",
       }
 
       "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}/#{commit}"
