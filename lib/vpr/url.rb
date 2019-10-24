@@ -34,7 +34,7 @@ module Vpr
     def self.commit_url(commit)
       path = {
         'github.com': "commit",
-        'bitbucket.org': "commits"
+        'bitbucket.org': "commits",
       }
 
       "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}/#{commit}"
@@ -42,7 +42,7 @@ module Vpr
 
     def self.search_url(commit)
       search_param =
-        if GitParser.repo_url =~ /bitbucket/
+        if GitParser.repo_url.match?(/bitbucket/)
           "/commits/all?search="
         else
           "/search?q="
