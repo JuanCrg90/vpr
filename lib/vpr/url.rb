@@ -7,7 +7,12 @@ module Vpr
     end
 
     def self.pulls_url
-      "#{GitParser.repo_url}/pulls"
+      path = {
+        'github.com': "pulls",
+        'bitbucket.org': "pull-requests",
+      }
+
+      "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}"
     end
 
     def self.issues_url
