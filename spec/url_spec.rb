@@ -102,9 +102,19 @@ RSpec.describe Vpr::Url do
   describe ".search_url" do
     subject { described_class.search_url(commit) }
 
-    it "returns the search page url" do
-      url = %r{https://github.com/\w+/vpr/search\?q=30bd60}
-      expect(subject).to match(url)
+    context "when github" do
+      it "returns the search page url" do
+        url = %r{https://github.com/\w+/vpr/search\?q=30bd60}
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when bitbucwet" do
+      it "returns the search page url" do
+        url = %r{https://bitbucket.org/\w+/vpr/commits/all\?search=30bd60}
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr").twice
+        expect(subject).to match(url)
+      end
     end
   end
 end
