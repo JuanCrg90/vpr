@@ -24,7 +24,13 @@ module Vpr
     end
 
     def self.branch_url
-      "#{GitParser.repo_url}/tree/#{GitParser.current_branch}"
+      search_param =
+        if GitParser.repo_url.match?(/bitbucket/)
+          "branch"
+        else
+          "tree"
+        end
+      "#{GitParser.repo_url}/#{search_param}/#{GitParser.current_branch}"
     end
 
     def self.pull_url
