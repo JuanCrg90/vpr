@@ -24,13 +24,11 @@ module Vpr
     end
 
     def self.branch_url
-      search_param =
-        if GitParser.repo_url.match?(/bitbucket/)
-          "branch"
-        else
-          "tree"
-        end
-      "#{GitParser.repo_url}/#{search_param}/#{GitParser.current_branch}"
+      path = {
+        'github.com': "tree",
+        'bitbucket.org': "branch",
+      }
+      "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}/#{GitParser.current_branch}"
     end
 
     def self.pull_url
@@ -52,13 +50,11 @@ module Vpr
     end
 
     def self.search_url(commit)
-      search_param =
-        if GitParser.repo_url.match?(/bitbucket/)
-          "/commits/all?search="
-        else
-          "/search?q="
-        end
-      "#{GitParser.repo_url}#{search_param}#{commit}"
+      path = {
+        'github.com': "search?q=",
+        'bitbucket.org': "commits/all?search=",
+      }
+      p "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}#{commit}"
     end
   end
 end

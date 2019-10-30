@@ -53,9 +53,20 @@ RSpec.describe Vpr::Url do
   describe ".branch_url" do
     subject { described_class.branch_url }
 
-    it "returns the branch url" do
-      url = %r{https://github.com/\w+/vpr/tree/\w+}
-      expect(subject).to match(url)
+    context "when github" do
+      it "returns the branch url" do
+        url = %r{https://github.com/\w+/vpr/tree/\w+}
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when bitbucket" do
+      it "returns the branch url" do
+        url = %r{https://bitbucket.org/\w+/vpr/branch/\w+}
+        expect(Vpr::GitParser).to receive(:host).and_return("bitbucket.org")
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
     end
   end
 
@@ -109,10 +120,11 @@ RSpec.describe Vpr::Url do
       end
     end
 
-    context "when bitbucwet" do
+    context "when bitbucket" do
       it "returns the search page url" do
         url = %r{https://bitbucket.org/\w+/vpr/commits/all\?search=30bd60}
-        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr").twice
+        expect(Vpr::GitParser).to receive(:host).and_return("bitbucket.org")
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
         expect(subject).to match(url)
       end
     end
