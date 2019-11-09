@@ -220,11 +220,11 @@ RSpec.describe "CLI" do
 
   describe "version" do
     it "shows gem version with double dash" do
-      expect(Vpr::CLI.start(["--version"])).to match("1.0.0")
+      expect(Vpr::CLI.start(["--version"])).to match("2.0.0")
     end
 
     it "shows gem version without double dash" do
-      expect(Vpr::CLI.start(["version"])).to match("1.0.0")
+      expect(Vpr::CLI.start(["version"])).to match("2.0.0")
     end
   end
 end
