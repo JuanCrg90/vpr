@@ -1,5 +1,29 @@
 # Change Log
 
+## [2.0.0](https://github.com/JuanCrg90/vpr/tree/2.0.0) (2019-11-09)
+[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v1.0.0...2.0.0)
+
+**Merged pull requests:**
+
+- Bump version 2 [\#31](https://github.com/JuanCrg90/vpr/pull/31) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add support vpr branch in bitbucket https://github.com/JuanCrg90/vpr/issues/18 [\#30](https://github.com/JuanCrg90/vpr/pull/30) ([n8chz](https://github.com/n8chz))
+- Add vendor to gitignore [\#28](https://github.com/JuanCrg90/vpr/pull/28) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add test for search page url [\#27](https://github.com/JuanCrg90/vpr/pull/27) ([JuanCrg90](https://github.com/JuanCrg90))
+- Bitbucket Pulls Command [\#26](https://github.com/JuanCrg90/vpr/pull/26) ([pathway27](https://github.com/pathway27))
+- per "https://github.com/JuanCrg90/vpr/issues/20" corrected pathname f… [\#25](https://github.com/JuanCrg90/vpr/pull/25) ([n8chz](https://github.com/n8chz))
+- Add standardrb checks to default rake task [\#24](https://github.com/JuanCrg90/vpr/pull/24) ([schmidt](https://github.com/schmidt))
+- Allow to use vpr even if you are not in the root directory [\#23](https://github.com/JuanCrg90/vpr/pull/23) ([schmidt](https://github.com/schmidt))
+- Allow pull command for Bitbucket repos [\#22](https://github.com/JuanCrg90/vpr/pull/22) ([pathway27](https://github.com/pathway27))
+- Fix test suite [\#21](https://github.com/JuanCrg90/vpr/pull/21) ([EduardoGHdez](https://github.com/EduardoGHdez))
+- Remove .travis.yml [\#16](https://github.com/JuanCrg90/vpr/pull/16) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add circle CI badge [\#15](https://github.com/JuanCrg90/vpr/pull/15) ([JuanCrg90](https://github.com/JuanCrg90))
+- add standardrb  [\#14](https://github.com/JuanCrg90/vpr/pull/14) ([andrewmcodes](https://github.com/andrewmcodes))
+- Support to select remote branch to visit [\#13](https://github.com/JuanCrg90/vpr/pull/13) ([EduardoGHdez](https://github.com/EduardoGHdez))
+- Add vpr --version command [\#11](https://github.com/JuanCrg90/vpr/pull/11) ([andrewmcodes](https://github.com/andrewmcodes))
+- Update circle ci config [\#7](https://github.com/JuanCrg90/vpr/pull/7) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add basic circle ci configuration [\#6](https://github.com/JuanCrg90/vpr/pull/6) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add support for bitbucket in visit method [\#5](https://github.com/JuanCrg90/vpr/pull/5) ([JuanCrg90](https://github.com/JuanCrg90))
+
 ## [v1.0.0](https://github.com/JuanCrg90/vpr/tree/v1.0.0) (2019-07-12)
 [Full Changelog](https://github.com/JuanCrg90/vpr/compare/v0.2.0...v1.0.0)
 
