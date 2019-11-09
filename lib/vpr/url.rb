@@ -54,7 +54,7 @@ module Vpr
         'github.com': "search?q=",
         'bitbucket.org': "commits/all?search=",
       }
-      p "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}#{commit}"
+      "#{GitParser.repo_url}/#{path[GitParser.host.to_sym]}#{commit}"
     end
   end
 end
