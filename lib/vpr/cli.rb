@@ -2,6 +2,7 @@ require "thor"
 require "launchy"
 require "vpr/url"
 require "vpr/configuration"
+require "vpr/version"
 
 module Vpr
   class CLI < Thor
@@ -55,7 +56,7 @@ module Vpr
 
     desc "version", "show the gem version"
     def version
-      Vpr::VERSION
+      puts Vpr::VERSION
     end
 
     private
