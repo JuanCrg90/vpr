@@ -4,7 +4,7 @@ RSpec.describe Vpr::Url do
   let(:commit) { "30bd60" }
 
   describe ".home_url" do
-    subject { described_class.home_url }
+    subject { described_class.new.home_url }
 
     it "returns the project url" do
       url = %r{https://github.com/\w+/vpr}
@@ -13,7 +13,7 @@ RSpec.describe Vpr::Url do
   end
 
   describe ".pulls_url" do
-    subject { described_class.pulls_url }
+    subject { described_class.new.pulls_url }
 
     context "when github" do
       it "returns the commit url" do
@@ -33,7 +33,7 @@ RSpec.describe Vpr::Url do
   end
 
   describe ".issues_url" do
-    subject { described_class.issues_url }
+    subject { described_class.new.issues_url }
 
     it "returns the  issues url" do
       url = %r{https://github.com/\w+/vpr/issues}
@@ -41,17 +41,17 @@ RSpec.describe Vpr::Url do
     end
   end
 
-  describe ".issues_url" do
-    subject { described_class.branches_url }
+  describe ".branches" do
+    subject { described_class.new.branches_url }
 
-    it "returns the  issues url" do
+    it "returns the branches url" do
       url = %r{https://github.com/\w+/vpr/branches}
       expect(subject).to match(url)
     end
   end
 
   describe ".branch_url" do
-    subject { described_class.branch_url }
+    subject { described_class.new.branch_url }
 
     context "when github" do
       it "returns the branch url" do
@@ -71,7 +71,7 @@ RSpec.describe Vpr::Url do
   end
 
   describe ".pull_url" do
-    subject { described_class.pull_url }
+    subject { described_class.new.pull_url }
 
     context "when github" do
       it "returns the current branch pull request url" do
@@ -91,7 +91,7 @@ RSpec.describe Vpr::Url do
   end
 
   describe ".commit_url" do
-    subject { described_class.commit_url(commit) }
+    subject { described_class.new.commit_url(commit) }
 
     context "when github" do
       it "returns the commit url" do
@@ -111,7 +111,7 @@ RSpec.describe Vpr::Url do
   end
 
   describe ".search_url" do
-    subject { described_class.search_url(commit) }
+    subject { described_class.new.search_url(commit) }
 
     context "when github" do
       it "returns the search page url" do
