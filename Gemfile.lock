@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vpr (2.0.1)
+    vpr (2.1.0)
       git (~> 1.5)
       launchy (~> 2.4)
       thor (~> 0.20)
