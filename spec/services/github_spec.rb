@@ -51,9 +51,24 @@ RSpec.describe Vpr::Services::GitHub do
   describe ".pull_url" do
     subject { described_class.pull_url }
 
-    it "returns the current branch pull request url" do
-      url = %r{https://github.com/\w+/vpr/pull/\w+}
-      expect(subject).to match(url)
+    context "when branch start with a word" do
+      it "returns the current branch pull request url" do
+        branch = "feature/my-feature"
+        expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
+
+        url = %r{https://github.com/\w+/vpr/pull/\w+}
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when branch start with number slash" do
+      it "returns the new pull request url" do
+        branch = "123/feature"
+        expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
+
+        url = %r{https://github.com/\w+/vpr/pull/new/\d+/\w+}
+        expect(subject).to match(url)
+      end
     end
   end
 
