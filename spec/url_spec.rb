@@ -55,14 +55,14 @@ RSpec.describe Vpr::Url do
 
     context "when github" do
       it "returns the branch url" do
-        url = %r{https://github.com/\w+/vpr/tree/\w+}
+        url = %r{https://github.com/\w+/vpr/tree/.+}
         expect(subject).to match(url)
       end
     end
 
     context "when bitbucket" do
       it "returns the branch url" do
-        url = %r{https://bitbucket.org/\w+/vpr/branch/\w+}
+        url = %r{https://bitbucket.org/\w+/vpr/branch/.+}
         expect(Vpr::GitParser).to receive(:host).and_return("bitbucket.org")
         expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
         expect(subject).to match(url)
@@ -75,14 +75,14 @@ RSpec.describe Vpr::Url do
 
     context "when github" do
       it "returns the current branch pull request url" do
-        url = %r{https://github.com/\w+/vpr/pull/\w+}
+        url = %r{https://github.com/\w+/vpr/pull/.+}
         expect(subject).to match(url)
       end
     end
 
     context "when bitbucket" do
       it "returns the pull request" do
-        url = %r{https://bitbucket.org/\w+/vpr/pull-requests/new\?source=\w+}
+        url = %r{https://bitbucket.org/\w+/vpr/pull-requests/new\?source=.+}
         expect(Vpr::GitParser).to receive(:host).and_return("bitbucket.org")
         expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
         expect(subject).to match(url)

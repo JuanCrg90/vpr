@@ -47,7 +47,7 @@ RSpec.describe Vpr::Services::Bitbucket do
     subject { described_class.branch_url }
 
     it "returns the branch url" do
-      url = %r{https://bitbucket.org/\w+/vpr/branch/\w+}
+      url = %r{https://bitbucket.org/\w+/vpr/branch/.+}
       expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
       expect(subject).to match(url)
     end
@@ -57,7 +57,7 @@ RSpec.describe Vpr::Services::Bitbucket do
     subject { described_class.pull_url }
 
     it "returns the pull request" do
-      url = %r{https://bitbucket.org/\w+/vpr/pull-requests/new\?source=\w+}
+      url = %r{https://bitbucket.org/\w+/vpr/pull-requests/new\?source=.+}
       expect(Vpr::GitParser).to receive(:repo_url).and_return("https://bitbucket.org/JuanCrg90/vpr")
       expect(subject).to match(url)
     end
