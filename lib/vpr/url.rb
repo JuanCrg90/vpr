@@ -45,7 +45,7 @@ module Vpr
       {
         'github.com': Vpr::Services::GitHub,
         'bitbucket.org': Vpr::Services::Bitbucket,
-        'gitlab.com': Vpr::Services::GitLab
+        'gitlab.com': Vpr::Services::GitLab,
       }
     end
 
