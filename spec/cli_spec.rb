@@ -111,7 +111,7 @@ RSpec.describe "CLI" do
   end
 
   describe "branch" do
-    let(:url) { %r{https://github.com/\w+/vpr/tree/\w+} }
+    let(:url) { %r{https://github.com/\w+/vpr/tree/.+} }
 
     it "open github branch page" do
       expect(Launchy).to receive(:open).with(url)
@@ -126,7 +126,7 @@ RSpec.describe "CLI" do
     end
 
     context "when user specify a remote" do
-      let(:url) { %r{https://github.com/EduardoGHdez/vpr/tree/\w+} }
+      let(:url) { %r{https://github.com/EduardoGHdez/vpr/tree/.+} }
       let(:remotes) { {upstream: "git@github.com:EduardoGHdez/vpr.git"} }
 
       it "open github remote's branch page" do

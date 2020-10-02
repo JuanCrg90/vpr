@@ -1,33 +1,28 @@
 name: CI
-
 on:
   pull_request:
-    branches:
-      - '*'
+    branches: [ master ]
   push:
-    branches:
-      - master
-
+    branches: [ master ]
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby: [ '2.5', '2.6', '2.7' ]
+        ruby_version: [ '2.5', '2.6', '2.7' ]
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      - name: Setup ruby ${{ matrix.ruby }}
+      - name: Setup ruby ${{ matrix.ruby_version }}
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
+          ruby-version: ${{ matrix.ruby_version }}
       - name: Setup cache key and directory for gems cache
         uses: actions/cache@v1
         with:
           path: vendor/bundle
-          key: ${{ runner.os }}-gem-use-ruby-${{ matrix.ruby }}-${{ hashFiles('**/Gemfile.lock') }}
+          key: ${{ runner.os }}-gem-use-ruby-${{ matrix.ruby_version }}-${{ hashFiles('**/Gemfile.lock') }}
+      - name: Bundle install
         run: |
           gem install bundler
           bundle config path vendor/bundle

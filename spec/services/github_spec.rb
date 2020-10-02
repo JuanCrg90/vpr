@@ -43,7 +43,7 @@ RSpec.describe Vpr::Services::GitHub do
     subject { described_class.branch_url }
 
     it "returns the branch url" do
-      url = %r{https://github.com/\w+/vpr/tree/\w+}
+      url = %r{https://github.com/\w+/vpr/tree/.+}
       expect(subject).to match(url)
     end
   end
@@ -56,7 +56,7 @@ RSpec.describe Vpr::Services::GitHub do
         branch = "feature/my-feature"
         expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
 
-        url = %r{https://github.com/\w+/vpr/pull/\w+}
+        url = %r{https://github.com/\w+/vpr/pull/.+}
         expect(subject).to match(url)
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe Vpr::Services::GitHub do
         branch = "123/feature"
         expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
 
-        url = %r{https://github.com/\w+/vpr/pull/new/\d+/\w+}
+        url = %r{https://github.com/\w+/vpr/pull/new/\d+/.+}
         expect(subject).to match(url)
       end
     end
