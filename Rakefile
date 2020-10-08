@@ -10,6 +10,6 @@ task default: [:standard, :spec]
 GitHubChangelogGenerator::RakeTask.new :changelog do |config|
   config.user = "JuanCrg90"
   config.project = "vpr"
-  config.since_tag = "0.1.0"
-  config.future_release = "2.0.0"
+  config.since_tag = "v0.1.0"
+  config.future_release = "v2.3.0"
 end
