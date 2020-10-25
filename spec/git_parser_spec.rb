@@ -35,9 +35,7 @@ RSpec.describe Vpr::GitParser do
       end
 
       it "raises an error" do
-        # TODO: replace with a human readable error message and a non-zero exit
-        # code
-        expect { described_class.repo_url }.to raise_error(ArgumentError)
+        expect { described_class.repo_url }.to raise_error Thor::Error
       end
     end
   end
