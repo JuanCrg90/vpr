@@ -1,8 +1,8 @@
 # Changelog
 
-## [v2.3.0](https://github.com/JuanCrg90/vpr/tree/v2.3.0) (2020-10-07)
+## [v2.3.1](https://github.com/JuanCrg90/vpr/tree/v2.3.1) (2020-10-28)
 
-[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.0...v2.3.0)
+[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.0...v2.3.1)
 
 **Closed issues:**
 
@@ -10,6 +10,11 @@
 - Add support vpr pulls in gitlab  [\#40](https://github.com/JuanCrg90/vpr/issues/40)
 - Add support vpr pull in gitlab [\#39](https://github.com/JuanCrg90/vpr/issues/39)
 - vpr pull fails on renamed repos [\#35](https://github.com/JuanCrg90/vpr/issues/35)
+
+**Merged pull requests:**
+
+- Error message when there is no repository [\#47](https://github.com/JuanCrg90/vpr/pull/47) ([EduardoGHdez](https://github.com/EduardoGHdez))
+- Update changelog [\#46](https://github.com/JuanCrg90/vpr/pull/46) ([JuanCrg90](https://github.com/JuanCrg90))
 
 ## [v2.3.0](https://github.com/JuanCrg90/vpr/tree/v2.3.0) (2020-10-03)
 
@@ -93,7 +98,6 @@
 - Add vpr --version command [\#11](https://github.com/JuanCrg90/vpr/pull/11) ([andrewmcodes](https://github.com/andrewmcodes))
 - Update circle ci config [\#7](https://github.com/JuanCrg90/vpr/pull/7) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add basic circle ci configuration [\#6](https://github.com/JuanCrg90/vpr/pull/6) ([JuanCrg90](https://github.com/JuanCrg90))
-- Add support for bitbucket in visit method [\#5](https://github.com/JuanCrg90/vpr/pull/5) ([JuanCrg90](https://github.com/JuanCrg90))
 
 ## [v1.0.0](https://github.com/JuanCrg90/vpr/tree/v1.0.0) (2019-07-12)
 
@@ -101,6 +105,7 @@
 
 **Merged pull requests:**
 
+- Add support for bitbucket in visit method [\#5](https://github.com/JuanCrg90/vpr/pull/5) ([JuanCrg90](https://github.com/JuanCrg90))
 - Bump version 1.0.0 [\#4](https://github.com/JuanCrg90/vpr/pull/4) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add changelog [\#3](https://github.com/JuanCrg90/vpr/pull/3) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add regular GitHub project actions [\#2](https://github.com/JuanCrg90/vpr/pull/2) ([JuanCrg90](https://github.com/JuanCrg90))
