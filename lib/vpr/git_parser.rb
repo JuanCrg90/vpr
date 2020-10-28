@@ -47,7 +47,9 @@ module Vpr
           return dir if File.directory?(File.join(dir, ".git"))
 
           parent = File.dirname(dir)
-          return dir if parent == dir # we're at the root
+
+          # NOTE: Raising an error because at this point it is at the root dir
+          raise Thor::Error.new("There is no repository in current directory") if parent == dir
 
           dir = parent
         end
