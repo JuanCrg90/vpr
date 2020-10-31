@@ -88,6 +88,15 @@ RSpec.describe Vpr::Url do
         expect(subject).to match(url)
       end
     end
+
+    context "when gitlab" do
+      it "returns the merge request" do
+        url = %r{https://gitlab.com/\w+/vpr/-/merge_requests/.+}
+        expect(Vpr::GitParser).to receive(:host).and_return("gitlab.com")
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://gitlab.com/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
+    end
   end
 
   describe ".commit_url" do
