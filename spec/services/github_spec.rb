@@ -51,7 +51,7 @@ RSpec.describe Vpr::Services::GitHub do
   describe ".pull_url" do
     subject { described_class.pull_url }
 
-    context "when branch start with a word" do
+    context "when current branch start with a word" do
       it "returns the current branch pull request url" do
         branch = "feature/my-feature"
         expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
@@ -61,12 +61,31 @@ RSpec.describe Vpr::Services::GitHub do
       end
     end
 
-    context "when branch start with number slash" do
+    context "when current branch start with number slash" do
       it "returns the new pull request url" do
         branch = "123/feature"
         expect(Vpr::GitParser).to receive(:current_branch).and_return(branch)
 
         url = %r{https://github.com/\w+/vpr/pull/new/\d+/.+}
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when no branch is passed" do
+      before { allow(Vpr::GitParser).to receive(:current_branch).and_return "foo-branch" }
+      it "uses the current branch for generating the pull request url" do
+        url = %r{https://github.com/\w+/vpr/pull/foo-branch}
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://github.com/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
+    end
+
+    context "when branch is passed" do
+      subject { described_class.pull_url("awesome-branch") }
+
+      it "uses it for generating the pull request url" do
+        url = %r{https://github.com/\w+/vpr/pull/awesome-branch}
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://github.com/JuanCrg90/vpr")
         expect(subject).to match(url)
       end
     end

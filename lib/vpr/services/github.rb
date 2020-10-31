@@ -23,13 +23,13 @@ module Vpr
         "#{GitParser.repo_url}/tree/#{GitParser.current_branch}"
       end
 
-      def self.pull_url
+      def self.pull_url(branch = nil)
+        branch ||= GitParser.current_branch
         base_url = "#{GitParser.repo_url}/pull"
-        current_branch = GitParser.current_branch
 
-        base_url.concat("/new") if current_branch.match?(/\d+\/.+/)
+        base_url.concat("/new") if branch.match?(/\d+\/.+/)
 
-        "#{base_url}/#{current_branch}"
+        "#{base_url}/#{branch}"
       end
 
       def self.commit_url(commit)
