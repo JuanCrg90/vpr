@@ -23,8 +23,9 @@ module Vpr
         "#{GitParser.repo_url}/-/tree/#{GitParser.current_branch}"
       end
 
-      def self.pull_url
-        "#{GitParser.repo_url}/-/merge_requests/#{GitParser.current_branch}"
+      def self.pull_url(branch = nil)
+        branch ||= GitParser.current_branch
+        "#{GitParser.repo_url}/-/merge_requests/#{branch}"
       end
 
       def self.commit_url(commit)
