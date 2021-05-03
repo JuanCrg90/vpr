@@ -1,55 +1,57 @@
+# vpr
+
 ![StandardRB](https://github.com/JuanCrg90/vpr/workflows/StandardRB/badge.svg)
 ![CI](https://github.com/JuanCrg90/vpr/workflows/CI/badge.svg)
 
-# vpr
 
-A CLI to visit quickly github project sections
+VPR is a CLI that helps you to quickly manage your project in GitHub/GitLab/Bitbucket.
+You can visit with ease different project sections, like the issues page, a specific commit,
+create pull requests (merge requests for GitLab),
+and more, also is configurable for other platforms PRs are open.
 
-## Installation
-```
-  $ gem install vpr
-```
-## Usage
-
-```
-$ vpr home # visit the project page in github
-```
-![vpr home](https://res.cloudinary.com/juancrg90/image/upload/v1562969660/vpr/vpr_home.gif)
-
-```
-$ vpr pulls # visit the project pull requests page in github
-```
-![vpr pulls](https://res.cloudinary.com/juancrg90/image/upload/v1562969866/vpr/vpr_pulls.gif)
-
-```
-$ vpr issues # visit the project issues page in github
-```
-![vpr issues](https://res.cloudinary.com/juancrg90/image/upload/v1562969959/vpr/vpr_issues.gif)
-
-```
-$ vpr branches # visit the project branches page in github
-```
-![vpr branches](https://res.cloudinary.com/juancrg90/image/upload/v1562970055/vpr/vpr_branches.gif)
-
-```
-$ vpr branch # 'visit the current branch in github'
-```
-![vpr branch](https://res.cloudinary.com/juancrg90/image/upload/v1562970153/vpr/vpr_branch.gif)
-
-```
-$ vpr pull # 'visit the pull request for the current branch (if exist) in github'
-```
 ![vpr pull](https://res.cloudinary.com/juancrg90/image/upload/v1562970242/vpr/vpr_pull.gif)
 
-```
-$ vpr visit <commit> # visit the commit in github
-```
-![vpr visit](https://res.cloudinary.com/juancrg90/image/upload/v1562970485/vpr/vpr_visit.gif)
+## Installation
 
+```bash
+  $ gem install vpr
 ```
-$ vpr search <commit> # search the commit in github
-```
-![vpr search](https://res.cloudinary.com/juancrg90/image/upload/v1562970606/vpr/vpr_search.gif)
+
+## Usage
+
+All the commands use the URL set as `origin` in your git remote to perform the web request,
+you can use the flag `--remote=REMOTE` to specify which service you want to visit if you have your project stored in more than one platform.
+
+### `vpr branch`
+Open in your browser your current branch.
+
+### `vpr branches`
+Open the page that shows the uploaded branch list.
+
+### `vpr help`
+Show the likst of available `vpr` commands, you can pass an specific command to get more details.
+
+###  `vpr home`
+Open in your browser the project page.
+
+### `vpr issues`
+Open the in your browser issues list page.
+
+### `vpr pull`
+Create a new pull request or visit an existing one for the current branch.
+
+### `vpr pulls`
+Open the pull requests list page.
+
+### `vpr search COMMIT`
+Search a given commit in the project page. the behavior of this command depends of the plaftorm, for example
+GitHub search in code, issues an PRs.
+
+### `vpr visit COMMIT`
+Open in the browser the page with the commit passed as an argument.
+
+### `vpr version`
+Show the current `vpr` version
 
 ## Development
 
