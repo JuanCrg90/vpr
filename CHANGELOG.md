@@ -1,5 +1,14 @@
 # Changelog
 
+## [v2.3.2](https://github.com/JuanCrg90/vpr/tree/v2.3.2) (2021-05-04)
+
+[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.1...v2.3.2)
+
+**Merged pull requests:**
+
+- Improve Readme [\#49](https://github.com/JuanCrg90/vpr/pull/49) ([JuanCrg90](https://github.com/JuanCrg90))
+- Ability to specify branch in pull command [\#48](https://github.com/JuanCrg90/vpr/pull/48) ([EduardoGHdez](https://github.com/EduardoGHdez))
+
 ## [v2.3.1](https://github.com/JuanCrg90/vpr/tree/v2.3.1) (2020-10-28)
 
 [Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.0...v2.3.1)
@@ -98,6 +107,7 @@
 - Add vpr --version command [\#11](https://github.com/JuanCrg90/vpr/pull/11) ([andrewmcodes](https://github.com/andrewmcodes))
 - Update circle ci config [\#7](https://github.com/JuanCrg90/vpr/pull/7) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add basic circle ci configuration [\#6](https://github.com/JuanCrg90/vpr/pull/6) ([JuanCrg90](https://github.com/JuanCrg90))
+- Add support for bitbucket in visit method [\#5](https://github.com/JuanCrg90/vpr/pull/5) ([JuanCrg90](https://github.com/JuanCrg90))
 
 ## [v1.0.0](https://github.com/JuanCrg90/vpr/tree/v1.0.0) (2019-07-12)
 
@@ -105,7 +115,6 @@
 
 **Merged pull requests:**
 
-- Add support for bitbucket in visit method [\#5](https://github.com/JuanCrg90/vpr/pull/5) ([JuanCrg90](https://github.com/JuanCrg90))
 - Bump version 1.0.0 [\#4](https://github.com/JuanCrg90/vpr/pull/4) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add changelog [\#3](https://github.com/JuanCrg90/vpr/pull/3) ([JuanCrg90](https://github.com/JuanCrg90))
 - Add regular GitHub project actions [\#2](https://github.com/JuanCrg90/vpr/pull/2) ([JuanCrg90](https://github.com/JuanCrg90))
