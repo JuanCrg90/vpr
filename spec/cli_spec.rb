@@ -162,6 +162,24 @@ RSpec.describe "CLI" do
         Vpr::CLI.start(["pull", "--remote", "upstream"])
       end
     end
+
+    context "when user specify a branch" do
+      it "open github branch's pull request" do
+        expected_url = %r{https://github.com/\w+/vpr/pull/foo}
+
+        expect(Launchy).to receive(:open).with(expected_url)
+        Vpr::CLI.start(["pull", "foo"])
+      end
+    end
+
+    context "when user does not specify a branch" do
+      before { allow(Vpr::GitParser).to receive(:current_branch) { "bar" } }
+      it "opens github current branch's pull request" do
+        expected_url = %r{https://github.com/\w+/vpr/pull/bar}
+        expect(Launchy).to receive(:open).with(expected_url)
+        Vpr::CLI.start(["pull"])
+      end
+    end
   end
 
   describe "visit" do

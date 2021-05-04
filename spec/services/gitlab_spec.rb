@@ -61,6 +61,26 @@ RSpec.describe Vpr::Services::GitLab do
       expect(Vpr::GitParser).to receive(:repo_url).and_return("https://gitlab.com/JuanCrg90/vpr")
       expect(subject).to match(url)
     end
+
+    context "when no branch is passed" do
+      before { allow(Vpr::GitParser).to receive(:current_branch).and_return "foo-branch" }
+
+      it "uses the current branch for generating the pull request url" do
+        url = %r{https://gitlab.com/\w+/vpr/-/merge_requests/foo-branch}
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://gitlab.com/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
+    end
+
+    context "whend it branch is passed" do
+      subject { described_class.pull_url("awesome-branch") }
+
+      it "uses it for generating the pull request url" do
+        url = %r{https://gitlab.com/\w+/vpr/-/merge_requests/awesome-branch}
+        expect(Vpr::GitParser).to receive(:repo_url).and_return("https://gitlab.com/JuanCrg90/vpr")
+        expect(subject).to match(url)
+      end
+    end
   end
 
   describe ".commit_url" do

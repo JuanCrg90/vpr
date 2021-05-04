@@ -40,9 +40,15 @@ module Vpr
       Launchy.open(url.branch_url)
     end
 
-    desc "pull", "visit the pull request for the current branch (if exist) in github"
-    def pull
-      Launchy.open(url.pull_url)
+    desc "pull [BRANCH]", "visit the pull request for the BRANCH in any of the supported hosts"
+    long_desc <<-DESC
+      It visits the pull request for the BRANCH in any of the supported hosts
+
+      Since the branch is an optional arg, it uses the current branch by default
+    DESC
+
+    def pull(branch = nil)
+      Launchy.open(url.pull_url(branch))
     end
 
     desc "visit COMMIT", "visit the commit in github"

@@ -27,8 +27,8 @@ module Vpr
       service.branch_url
     end
 
-    def pull_url
-      service.pull_url
+    def pull_url(branch = nil)
+      service.pull_url(branch)
     end
 
     def commit_url(commit)
