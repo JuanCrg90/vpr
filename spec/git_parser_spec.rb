@@ -38,6 +38,15 @@ RSpec.describe Vpr::GitParser do
         expect { described_class.repo_url }.to raise_error Thor::Error
       end
     end
+
+    it "supports repositories with url name" do
+      repo_url = %r{https://github.com/\w+/test.vpr.io}
+
+      url = "git@github.com:JuanCrg90/test.vpr.io.git"
+      expect_any_instance_of(Git::Remote).to receive(:url).and_return(url)
+
+      expect(described_class.repo_url).to match(repo_url)
+    end
   end
 
   describe "current_branch" do

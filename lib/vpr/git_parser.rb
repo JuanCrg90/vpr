@@ -10,7 +10,7 @@ module Vpr
     [/:]
     (?<owner>[^/]+)
     /
-    (?<repo>[^/.]+)
+    (?<repo>[^\/]+[^(.git)])
     }x.freeze
 
     class << self

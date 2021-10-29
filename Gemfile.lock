@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vpr (2.3.2)
+    vpr (2.3.3)
       git (~> 1.7)
       launchy (~> 2.4)
       thor (~> 0.20)
@@ -24,7 +24,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday-http-cache (2.2.0)
       faraday (>= 0.8)
-    git (1.7.0)
+    git (1.9.1)
       rchardet (~> 1.8)
     github_changelog_generator (1.15.2)
       activesupport
@@ -37,8 +37,8 @@ GEM
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
-    launchy (2.4.3)
-      addressable (~> 2.3)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     minitest (5.14.2)
     multi_json (1.15.0)
     multipart-post (2.1.1)
@@ -104,4 +104,4 @@ DEPENDENCIES
   vpr!
 
 BUNDLED WITH
-   2.1.4
+   2.2.30
