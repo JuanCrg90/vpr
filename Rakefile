@@ -11,5 +11,5 @@ GitHubChangelogGenerator::RakeTask.new :changelog do |config|
   config.user = "JuanCrg90"
   config.project = "vpr"
   config.since_tag = "v0.1.0"
-  config.future_release = "v2.3.1"
+  config.future_release = "v2.3.3"
 end

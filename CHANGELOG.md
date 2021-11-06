@@ -1,5 +1,18 @@
 # Changelog
 
+## [v2.3.3](https://github.com/JuanCrg90/vpr/tree/v2.3.3) (2021-11-06)
+
+[Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.2...v2.3.3)
+
+**Closed issues:**
+
+- Improve the Readme [\#34](https://github.com/JuanCrg90/vpr/issues/34)
+
+**Merged pull requests:**
+
+- Add support for repos with url name [\#51](https://github.com/JuanCrg90/vpr/pull/51) ([JuanCrg90](https://github.com/JuanCrg90))
+- Bump addressable from 2.6.0 to 2.8.0 [\#50](https://github.com/JuanCrg90/vpr/pull/50) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v2.3.2](https://github.com/JuanCrg90/vpr/tree/v2.3.2) (2021-05-04)
 
 [Full Changelog](https://github.com/JuanCrg90/vpr/compare/v2.3.1...v2.3.2)
