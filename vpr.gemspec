@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Juan Carlos Ruiz"]
   spec.email = ["JuanCrg90@gmail.com"]
 
-  spec.summary = "A CLI to visit quickly commits in github"
-  spec.description = "Visit the github PR using the Commit SHA-1"
+  spec.summary = "VPR is a CLI that helps you to quickly manage your project in GitHub/GitLab/Bitbucket."
+  spec.description = "VPR is a CLI that helps you to quickly manage your project in GitHub/GitLab/Bitbucket. You can visit with ease different project sections, like the issues page, a specific commit, create pull requests (merge requests for GitLab), and more, also is configurable for other platforms PRs are open."
   spec.homepage = "https://github.com/JuanCrg90/vpr"
   spec.license = "MIT"
 
