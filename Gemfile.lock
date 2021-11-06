@@ -142,7 +142,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.1)
+  bundler (~> 2.2.30)
   github_changelog_generator (~> 1.16)
   rake (~> 13.0)
   rspec (~> 3.0)
