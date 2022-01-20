@@ -1,5 +1,3 @@
-require "vpr/git_parser"
-
 module Vpr
   module Services
     class GitHub

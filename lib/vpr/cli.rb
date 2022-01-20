@@ -1,8 +1,5 @@
 require "thor"
 require "launchy"
-require "vpr/url"
-require "vpr/configuration"
-require "vpr/version"
 
 module Vpr
   class CLI < Thor

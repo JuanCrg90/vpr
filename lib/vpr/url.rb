@@ -1,6 +1,3 @@
-require "vpr/git_parser"
-require "vpr/services"
-
 module Vpr
   class Url
     def initialize
