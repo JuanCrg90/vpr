@@ -3,20 +3,20 @@ require "vpr/configuration"
 
 module Vpr
   class GitParser
-    REGEXP = %r{
+    GIT_REPO_URL_REGEX = %r{
     (?<protocol>(http://|https://|git://|ssh://))*
       (?<username>[^@]+@)*
       (?<host>[^/]+)
     [/:]
     (?<owner>[^/]+)
     /
-    (?<repo>[^\/]+[^(.git)])
+    (?<repo>[^\/]+)\.git
     }x.freeze
 
     class << self
       def repo_url
         remote_uri = remotes[Configuration.remote]
-        matched = remote_uri.match(REGEXP)
+        matched = remote_uri.match(GIT_REPO_URL_REGEX)
 
         File.join("https://#{matched[:host]}", matched[:owner], matched[:repo])
       end
@@ -28,7 +28,7 @@ module Vpr
 
       def host
         remote_uri = remotes[Configuration.remote]
-        matched = remote_uri.match(REGEXP)
+        matched = remote_uri.match(GIT_REPO_URL_REGEX)
 
         matched[:host]
       end
