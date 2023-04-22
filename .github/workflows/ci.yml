@@ -1,32 +1,19 @@
 name: CI
-on:
-  pull_request:
-    branches: [ master ]
-  push:
-    branches: [ master ]
+on: [push, pull_request]
 jobs:
   test:
-    runs-on: ubuntu-latest
     strategy:
+      fail-fast: true
       matrix:
-        ruby_version: [ '2.5', '2.6', '2.7' ]
+        os: [ubuntu-latest, macos-latest]
+        # Due to https://github.com/actions/runner/issues/849, we have to use quotes for '3.0'
+        ruby: ['2.7', '3.0', '3.1', head]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup ruby ${{ matrix.ruby_version }}
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby_version }}
-      - name: Setup cache key and directory for gems cache
-        uses: actions/cache@v1
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-use-ruby-${{ matrix.ruby_version }}-${{ hashFiles('**/Gemfile.lock') }}
-      - name: Bundle install
-        run: |
-          gem install bundler
-          bundle config path vendor/bundle
-          bundle install --jobs 4 --retry 3
-      - name: Run tests
-        run: |
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - run: |
           bundle exec rspec --format progress
