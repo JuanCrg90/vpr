@@ -30,6 +30,15 @@ module Vpr
         remote_uri = remotes[Configuration.remote]
         matched = remote_uri.match(GIT_REPO_URL_REGEX)
 
+        puts "------------------"
+        puts "remotes: #{remotes}"
+        puts "remote: #{Configuration.remote}"
+        puts "remote_uri: #{remote_uri}"
+        puts "regex: #{GIT_REPO_URL_REGEX}"
+        puts remote_uri.match(GIT_REPO_URL_REGEX)
+        puts "matched: #{matched}"
+        puts "------------------"
+
         matched[:host]
       end
 
